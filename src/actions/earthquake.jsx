@@ -9,7 +9,7 @@ export const allEarthquakeFetched = mapData => ({
     mapData
 });
 
-export const lastWeekEarthquakeFetched = mapData  => ({
+export const lastMonthEarthquakeFetched = mapData  => ({
     type: ALL_EARTHQUAKE_IN_AREA_FETCHED,
     mapData
 });
@@ -24,7 +24,7 @@ export const allEarthquakeInLastWeekFetching = () => dispatch => {
         dispatch(allEarthquakeFetched(res)))
 };
 
-export const lastWeekEarthquakeInSpecificAreaFetching = (latitude, longitude, km, minmagnitude) => dispatch => {
+export const lastMonthEarthquakeInSpecificAreaFetching = (latitude, longitude, km, minmagnitude) => dispatch => {
     api.earthquake.getSpecificEarthQuakesInLastMonth(latitude, longitude, km, minmagnitude).then(res =>
-        dispatch(lastWeekEarthquakeFetched(res)))
+        dispatch(lastMonthEarthquakeFetched(res)))
 };

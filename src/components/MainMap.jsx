@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import { Map, TileLayer, Popup, CircleMarker } from 'react-leaflet'
-import {lastWeekEarthquakeInSpecificAreaFetching} from'../actions/earthquake'
+import {lastMonthEarthquakeInSpecificAreaFetching} from'../actions/earthquake'
 
 
 const DEFAULT_VIEWPORT = {
@@ -40,7 +40,7 @@ export class MainMap extends Component {
     }
 
     onClickReset = (event) => {
-        this.props.lastWeekEarthquakeInSpecificAreaFetching(event.latlng.lat, event.latlng.lng, 1000, 3)
+        this.props.lastMonthEarthquakeInSpecificAreaFetching(event.latlng.lat, event.latlng.lng, 1000, 3)
     };
 
     onViewportChanged = (viewport) => {
@@ -101,7 +101,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-    lastWeekEarthquakeInSpecificAreaFetching
+    lastMonthEarthquakeInSpecificAreaFetching
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainMap)
